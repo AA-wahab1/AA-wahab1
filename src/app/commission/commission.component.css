@@ -1,0 +1,82 @@
+body{
+    background-color:rgba(165, 162, 162, 0.203);
+}
+.full{
+    background-color:rgba(165, 162, 162, 0.203);
+    width: 100%;
+}
+.agent{
+    
+    padding: 2%;
+    width: 20%;
+    
+}
+.but{
+   width: 8%;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    
+}
+.agentt{
+    
+    padding: 2%;
+    width: 20%;
+}
+.inputs{
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    
+}
+.form-group{
+    padding-left: 2%;
+    padding-bottom: 1%;
+}
+.items{
+    padding: 2%;
+    padding-bottom: 1%;
+    display: flex;
+    align-items: center;
+   
+    
+}
+.itemout{
+    background-color:rgba(165, 162, 162, 0.203);
+    padding-bottom: 5%;
+    
+}
+.callendar{
+padding-left: 4%;
+border-radius: 8px;
+border-color: black;
+height: 35px;
+width: 90%;
+font-size: 0.9rem;
+
+}
+.delicon{
+    cursor: pointer;
+}
+.cal{
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+.call{
+    
+    padding-left: 2%;
+    width:20%;
+    font-size: 1.3rem;
+   
+    }
+    .tabfull{
+        padding: 4%;
+    }
+    .spinner
+    {
+        display: flex; 
+  justify-content: center; 
+  align-items: center;
+  }

@@ -1,0 +1,122 @@
+<div *ngIf="tableAlert" class="alert alert-success" role="alert">
+    Data Found Successfully
+  </div>
+  <div *ngIf="noData" class="alert alert-danger" role="alert">
+    No data found against given data.
+  </div>
+  <!-- //<app-navbar></app-navbar> -->
+  
+  <div class="full">
+  <div class="inputs">
+    <mat-card>
+      <div class="itemout">
+        <div class="items">
+        <div class="agent">
+          
+    
+          <ng-select placeholder="Agent Name" (change)="agentChange($event)">
+            <ng-option *ngFor="let name of agentName" [value]="name.AgentID">{{
+              name.fullnaem
+            }}</ng-option>
+          </ng-select>
+        </div>
+        <div class="agentt">
+        <mat-form-field appearance="fill">
+          <mat-label>Payment Mode</mat-label>
+          <mat-select (selectionChange)="paymentChange($event)">
+            <mat-option *ngFor="let mode of payment" [value]="mode.PaymentMode">
+              {{mode.PaymentMode}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+        <!-- <div class="agentt"> -->
+          <!-- <ng-select (change)="paymentChange($event)" placeholder="Payment Mode">
+            <ng-option *ngFor="let mode of payment" [value]="mode.PaymentMode">{{
+              mode.PaymentMode
+            }}</ng-option>
+          </ng-select> -->
+        <!-- </div> -->
+        
+          
+          <div class="cal">
+          <label for="exampleInputEmail1">Date</label>
+          <input
+            type="month"
+            class="callendar"
+            (change)="calendarChange($event)"
+          /> </div>
+        
+        <div class="form-group">
+          <label for="exampleInputEmail1">Terminal ID</label>
+          <input type="text" (change)="terminalChange($event)" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter terminal ID"/>
+          
+        </div>
+        </div>
+        <div class="submit">
+          <button class="but" (click)="submit()" mat-raised-button color="primary">submit</button></div>
+         <div class="spinner" *ngIf="spinner"> <mat-spinner ></mat-spinner> </div>
+          </div>
+          
+    </mat-card>
+  </div>
+  
+  <hr />
+  
+  
+      <div class="tabfull"> 
+        
+        <mat-card *ngIf="tableDisplay">
+        
+    <table class="table table-striped w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+          <th scope="col" class="py-3 px-6">ID</th>
+          <th scope="col" class="py-3 px-6">Terminal ID</th>
+          <th scope="col" class="py-3 px-6">Agent Name</th>
+          <th scope="col" class="py-3 px-6">Commission Amount</th>
+          <th scope="col" class="py-3 px-6">Payment Mode</th>
+          <th scope="col" class="py-3 px-6">MBE Ref#</th>
+          <th scope="col" class="py-3 px-6">Payment Y/M</th>
+          <th scope="col" class="py-3 px-6">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngFor="let value of tableData">
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{value.RowId}}</td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{value.Terminal_Id}}</td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{value.AGENTNAME}}</td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <input type="text" (change)="comissionHandler($event,value.RowId,value.PaymentMode)" class="form-control" [defaultValue]="value.CommissionAmount"/></td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <mat-form-field appearance="fill">
+              <mat-label>Payment Mode</mat-label>
+              <mat-select [(value)]="value.PaymentMode" (selectionChange)="paymentHandler($event,value.RowId,value.CommissionAmount)">
+                <mat-option *ngFor="let mode of payment" [value]="mode.PaymentMode">
+                  {{mode.PaymentMode}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            
+  
+  
+          </td>
+  
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{value.MBERefNo}}</td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{value.PaymentYM}}</td>
+          <td scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <mat-icon class="delicon" aria-hidden="false" (click)="deleteNewMethod($event,value)" aria-label="Example delete icon" fontIcon="delete"></mat-icon></td>
+        </tr>
+      
+      </tbody>
+    </table>
+    <div class="submit">
+      <button class="but" (click)="updateNewMethod()" mat-raised-button color="primary">Update</button></div>
+      
+  </mat-card>
+  
+    </div>
+    
+  </div>
+  

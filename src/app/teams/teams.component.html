@@ -1,0 +1,86 @@
+
+<div class="card " >
+  <div class="card-header"><h3 style="align-items: center; justify-content: center; display: flex;" class="card-title">Team</h3>
+
+    <div class="container" style=>
+    <div class="row" >
+    <div class="card border border-info "  
+    *ngFor="let name of manager" style="width: 24rem;
+    margin: 1%; height: 400px; overflow: hidden; ">
+    
+    <div class="container"
+    style=" padding: 5%;" 
+    >
+    <div class="card-header" style="display:flex;" >
+    <h3 class="card-title">{{ name.ManagerName }} </h3>
+    <div style="margin-left: auto;">
+    <mat-icon style="cursor: pointer;" aria-hidden="false" aria-label="Example delete icon"  
+    (click)="managerDel(name.MId)"
+    fontIcon="delete"></mat-icon></div></div>
+</div>
+      
+      <div class="card-body">
+        <ngb-accordion  #acc="ngbAccordion" style="padding-top:4%; "  >
+         <ngb-panel id="toggle-1"  title="Agent" >
+            <ng-template ngbPanelContent  >
+                <ng-scrollbar style="height: 180px">
+              <table class="table table-striped" >
+                <thead >
+                  <th scope="col">Agent Name</th></thead>
+                  
+                <tbody >
+                    
+                  <tr  *ngFor="let list of name.TeamList">
+                    
+                   <td >{{ list.AgentName }}</td>
+                  </tr>
+                
+                  <!-- <th scope="row"> i + 1</th> -->
+                </tbody>
+            </table>
+            </ng-scrollbar>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+    <ngb-accordion style="padding:4%;">
+          <ngb-panel id="toggle-2" title="Team Leader" style="margin-bottom: 3%;">
+            <ng-template ngbPanelContent>
+                <ng-scrollbar style="height: 180px">
+              <table class="table table-striped">
+                <thead><tr> 
+                <th scope="col">Team Leader Name</th>
+                <th scope="col">Business</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+                <tbody>
+                  <tr *ngFor="let list of name.ProductLeadList">
+                    <!-- <th scope="row"> i + 1</th> -->
+                    <td style="font-size: 12px">
+                      {{ list.LeaderName }}
+                    </td>
+                    <td style="font-size: 12px">
+                        {{ list.BusinessName }}
+                      </td>
+                      <td >
+                        <mat-icon style="cursor: pointer;" aria-hidden="false" aria-label="Example delete icon"  fontIcon="delete"></mat-icon>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-scrollbar>
+            </ng-template>
+          </ngb-panel>
+          </ngb-accordion>
+          
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+
