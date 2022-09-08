@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { AuditComponent } from './audit/audit.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,12 +24,8 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 
-
-
-
-
 @NgModule({
-  declarations: [ NavbarComponent, routingComponents, CommissionComponent],
+  declarations: [ NavbarComponent, routingComponents, CommissionComponent, AuditComponent],
   imports: [BrowserModule,NgScrollbarModule,MatExpansionModule,CdkAccordionModule,MatFormFieldModule,ScrollingModule,MatProgressSpinnerModule,MatSelectModule,MatButtonModule, MatSliderModule,MatDatepickerModule, MatCardModule, AppRoutingModule, NgbModule, HttpClientModule,NgSelectModule, FormsModule, BrowserAnimationsModule,MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
